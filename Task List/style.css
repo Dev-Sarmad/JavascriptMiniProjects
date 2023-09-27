@@ -1,0 +1,18 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 10px;
+    justify-content: center;
+}
+.tasks{
+    width: 300px;
+    padding: 10px;
+    gap: 20;
+    margin: 10px;    
+}
+.task{
+    border: 1px solid black;
+    justify-content: space-between;
+    padding: 20px;
+}
