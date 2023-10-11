@@ -20,10 +20,13 @@ console.log(today); //2023-10-10T13:12:40.637Z inorder to get rid of time we hav
 dateElement.setAttribute("min", today); // min is atttribute for minimum date so that we can select future dates.
 
 const updateDom = () => {
+  // present date
   let now = new Date().getTime();
+  //actual time length from the present date
   let distance = countValue - now;
   console.log("distance is " + distance);
   const days = Math.floor(distance / day);
+  //if the distance % day remainder something like 1.5 then we have to / this by actual hour to get total hours same goes for others.
   const hours = Math.floor((distance % day) / hour);
   const minutes = Math.floor((distance % hour) / minute);
   const seconds = Math.floor((distance % minute) / second);
@@ -33,6 +36,7 @@ const updateDom = () => {
   timeElements[1].textContent = `${hours}`;
   timeElements[2].textContent = `${minutes}`;
   timeElements[3].textContent = `${seconds}`;
+  // hiding the input container and showing Countdown after setting the values.
   inputContainer.hidden = true;
   countDownElement.hidden = false;
 };
