@@ -17,6 +17,7 @@ let minute = second * 60;
 let hour = minute * 60;
 let day = hour * 24;
 let countdownActive;
+let saveCountDown;
 // setting the minimum date
 const today = new Date().toISOString().split("T")[0];
 console.log(today); //2023-10-10T13:12:40.637Z inorder to get rid of time we have to trim from 'T'
@@ -62,6 +63,11 @@ const updateCountDown = (e) => {
   e.preventDefault();
   countTitle = e.srcElement[0].value;
   countDate = e.srcElement[1].value;
+  saveCountDown = {
+    title: countTitle,
+    date: countDate,
+  };
+  localStorage.setItem("count", JSON.stringify(saveCountDown));
   if (countDate === "" || countTitle === "") {
     alert("please select all inputs");
   } else {
@@ -76,13 +82,26 @@ const reset = () => {
   //hide countdown and show the input
   countDownElement.hidden = true;
   //after completion create a new countdown
-  completeElement.hidden = true
+  completeElement.hidden = true;
   inputContainer.hidden = false;
   clearInterval(countdownActive);
   countTitle = "";
   countDate = "";
 };
 
+const localStorageCounts = () => {
+  if (localStorage.getItem("count")) {
+    inputContainer.hidden = true;
+
+    saveCountDown = JSON.parse(localStorage.getItem("count"));
+    countTitle = saveCountDown.title;
+    countDate = saveCountDown.date;
+    countValue = new Date(countDate).getTime();
+    updateDom();
+  }
+};
+
 countdownForm.addEventListener("submit", updateCountDown);
 countDownBtn.addEventListener("click", reset);
 completeBtn.addEventListener("click", reset);
+localStorageCounts();
