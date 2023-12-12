@@ -3,7 +3,7 @@ import { data } from "./data.js";
 const productsContainer = document.querySelector(".products");
 const searchItem = document.querySelector("#search");
 const categoriesContainer = document.querySelector(".categories");
-const priceRange = document.querySelector(".priceReange");
+const priceRange = document.querySelector(".priceRange");
 const priceValue = document.querySelector(".priceValue");
 
 const displayProducts = (filteredProducts) => {
@@ -58,3 +58,25 @@ const setCategory = () => {
 };
 
 setCategory();
+
+const setPrice =()=>{
+const prices  = data.map((item) => item.price);
+
+// prices is an array so we need to find the price 
+// either its maximum or the minimum so we use function min max but
+// function not run on array so we spread the array 
+
+let minPrice =  Math.min(...prices);
+let maxPrice =  Math.max(...prices);
+//changing ranges and values
+priceRange.min = minPrice;
+priceRange.max = maxPrice;
+priceRange.value = maxPrice;
+priceValue.textContent = "$"+maxPrice;
+
+priceRange.addEventListener("input", (e)=>{
+    priceValue.textContent = e.target.value;
+    displayProducts(data.filter((item)=>item.price <= e.target.value))
+})
+}
+setPrice();

@@ -10,7 +10,7 @@ export let data = [
     id: 2,
     name: "Superocean Heritage",
     img : "https://m.media-amazon.com/images/I/61hGDiWBU8L._AC_UY879_.jpg",
-    price: 174,
+    price: 300,
     category: "Sports"
   },
   {
@@ -24,14 +24,14 @@ export let data = [
     id: 4,
     name: "Casino Classic Resin Strap",
     img : "https://m.media-amazon.com/images/I/51Nk5SEBARL._AC_UY879_.jpg",
-    price: 174,
+    price: 500,
     category: "Luxary"
   },
   {
     id: 1,
     name: "Garmin venu Smart Watch",
     img : "https://m.media-amazon.com/images/I/51kyjYuOZhL._AC_UY879_.jpg",
-    price: 174,
+    price: 200,
     category: "Casual"
   },
 ];
