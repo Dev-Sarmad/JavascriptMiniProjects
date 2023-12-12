@@ -32,3 +32,29 @@ searchItem.addEventListener("keyup", (e) => {
     displayProducts(data);
   }
 });
+
+const setCategory = () => {
+  const categories = data.map((item) => item.category);
+//   adding the category All and checking the double categories 
+  const updatedCategories = [
+    "All",
+    ...categories.filter((item, i) => categories.indexOf(item) === i),
+  ];
+  categoriesContainer.innerHTML = updatedCategories
+    .map((category) => `<span class="category">${category}</span>`)
+    .join("");
+  categoriesContainer.addEventListener("click", (e) => {
+    const selectedCategory = e.target.textContent;
+    if (selectedCategory) {
+      selectedCategory === "All"
+        ? displayProducts(data)
+        : displayProducts(
+            data.filter((item) => item.category === selectedCategory)
+          );
+    } else {
+      displayProducts(data);
+    }
+  });
+};
+
+setCategory();
