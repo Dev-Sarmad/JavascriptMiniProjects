@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Filter</title>
+    <style>
+        h1,.name, .priceText{
+            text-transform: capitalize;
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+        .side-menu{
+            flex:1;
+        }
+        .content{
+            flex: 4;
+        }
+        .categories{
+            display: flex;
+            gap: 10px;
+        }
+        .products{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .product{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        img{
+            width: 300px;
+            height: 250px;
+            object-fit: contain;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>filter and search</h1>
+    <!-- Products container -->
+    <div class="container">
+        <!-- Side Menu -->
+        <div class="side-menu">
+            <input type="search" name="" id="search" placeholder="Search Products">
+           <h2>Categories</h2>
+           <div class="categories">
+            <span class="category">All</span>
+            <span class="category">Casual</span>
+            <span class="category">Sports</span>
+            <span class="category">Luxary</span>
+            <span class="category">Dress</span>
+           </div> 
+           <h2>Maximum Price</h2>
+           <div class="price">
+            <input type="range" name="" id="priceRange" class="priceRange">
+            <span class="priceValue">$50</span>
+           </div>
+        </div>
+        <!-- Now Products  -->
+        <div class="content">
+            <div class="products">
+                <div class="product">
+                    <img src="https://m.media-amazon.com/images/I/71e04Q53xlL._AC_UY879_.jpg" alt="">
+                    <span class="name">Name</span>
+                    <span class="priceText">$50</span>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="./index.js" type="module"></script>
+    <script type="module" src="./data.js"></script>
+</body>
+</html>
